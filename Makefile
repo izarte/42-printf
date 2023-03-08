@@ -6,7 +6,7 @@
 #    By: izarate- <izarate-@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/07 11:56:47 by izarate-          #+#    #+#              #
-#    Updated: 2023/03/07 11:58:06 by izarate-         ###   ########.fr        #
+#    Updated: 2023/03/08 14:36:24 by izarate-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,8 +19,9 @@ DEV_COMPILE = ${CC} ${DEV-FLAGS} ${INCLUDE}
 NAME		= libftprintf.a
 AR			= ar -rcs
 
-SRC	=	ft_printf.c
-
+SRC	=	ft_printf.c 	\
+		utils_printf.c	\
+		print_base.c
 all: ${NAME}
 
 ${NAME}: ${OBJS}
