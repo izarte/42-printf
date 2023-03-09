@@ -6,7 +6,7 @@
 #    By: izarate- <izarate-@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/07 11:56:47 by izarate-          #+#    #+#              #
-#    Updated: 2023/03/08 14:36:24 by izarate-         ###   ########.fr        #
+#    Updated: 2023/03/09 11:38:44 by izarate-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,14 @@ AR			= ar -rcs
 
 SRC	=	ft_printf.c 	\
 		utils_printf.c	\
-		print_base.c
+		print_base.c	\
+		ft_strlen.c
+
+SRCS = ${SRC}
+
+OBJS_NO_BIN		= ${SRCS:.c=.o}
+OBJS			= $(addprefix ${BIN}, ${OBJS_NO_BIN})
+
 all: ${NAME}
 
 ${NAME}: ${OBJS}
@@ -34,7 +41,7 @@ ${BIN}%.o: %.c
 	@	${COMPILE.C} -c $< -o $@
 
 clean:
-	@	${RM} ${OBJS} *.o a.out
+	@	${RM} -r ${OBJS} *.o a.out ${BIN}
 	@	echo "Succesfully deleted objects"
 
 fclean:	clean
